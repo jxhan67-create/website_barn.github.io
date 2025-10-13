@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的第一个静态网页</title>
+    <title>带跳转效果的静态网页</title>
     <style>
-        /* 基础样式设置 */
+        /* 基础样式（保持不变） */
         body {
             font-family: "微软雅黑", sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f5f5f5;
             color: #333;
+            scroll-behavior: smooth; /* 实现平滑滚动跳转 */
         }
 
-        /* 头部样式 */
         header {
             background-color: #2c3e50;
             color: white;
@@ -22,7 +22,6 @@
             text-align: center;
         }
 
-        /* 导航栏样式 */
         nav {
             background-color: #34495e;
             padding: 10px;
@@ -41,7 +40,6 @@
             background-color: #1abc9c;
         }
 
-        /* 主要内容区样式 */
         .container {
             max-width: 800px;
             margin: 20px auto;
@@ -61,7 +59,6 @@
             line-height: 1.6;
         }
 
-        /* 图片样式 */
         .my-photo {
             width: 100%;
             max-width: 400px;
@@ -70,7 +67,6 @@
             border-radius: 8px;
         }
 
-        /* 按钮样式 */
         .btn {
             display: inline-block;
             background-color: #1abc9c;
@@ -86,7 +82,15 @@
             background-color: #16a085;
         }
 
-        /* 页脚样式 */
+        /* 新增：跳转区域样式，让页面有足够长度方便演示滚动 */
+        .jump-section {
+            height: 500px; /* 增加高度，方便看到跳转效果 */
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -97,56 +101,62 @@
     </style>
 </head>
 <body>
-    <!-- 头部 -->
     <header>
-        <h1>欢迎来到我的网页--10-13-13.30</h1>
-        <p>这是一个简单的静态网页示例?</p>
+        <h1>带跳转效果的网页</h1>
+        <p>点击链接或按钮体验跳转效果</p>
     </header>
 
-    <!-- 导航栏 -->
     <nav>
+        <!-- 导航链接：跳转到当前页面的指定区域（锚点跳转） -->
         <a href="#home">首页</a>
         <a href="#about">关于我</a>
         <a href="#contact">联系方式</a>
+        <a href="#jump">跳转演示区</a>
+        <!-- 外部链接：跳转到其他网站 -->
+        <a href="https://github.com" target="_blank">访问GitHub</a>
     </nav>
 
-    <!-- 主要内容 -->
     <div class="container">
         <section id="home">
             <h2>首页</h2>
             <p class="intro">
-                你好！这是一个用HTML和CSS制作的静态网页。静态网页是指内容固定不变的网页，
-                不需要后端服务器处理数据，直接通过浏览器就能打开查看。
+                这个网页添加了两种跳转效果：
             </p>
+            <ul>
+                <li>点击导航栏的「首页/关于我/联系方式」会跳转到当前页面的对应区域</li>
+                <li>点击「访问GitHub」会跳转到GitHub官网（新窗口打开）</li>
+                <li>点击下方按钮会跳转到「跳转演示区」</li>
+            </ul>
             <img src="https://picsum.photos/800/400" alt="示例图片" class="my-photo">
-            <a href="#about" class="btn">了解更多</a>
+            <!-- 按钮跳转：跳转到当前页面的 jump 区域 -->
+            <a href="#jump" class="btn">点击跳转到演示区</a>
         </section>
 
         <section id="about">
             <h2>关于我</h2>
             <p class="intro">
-                我正在学习网页开发，目前掌握了HTML基础结构、CSS样式设计，
-                接下来计划学习JavaScript来实现更丰富的交互效果。
+                这是页面内的「关于我」区域，通过导航栏的「关于我」链接可以直接跳转到这里。
             </p>
-            <p>这个网页包含了：</p>
-            <ul>
-                <li>头部和导航栏</li>
-                <li>内容区域和图片</li>
-                <li>按钮和链接</li>
-                <li>响应式布局（适配不同屏幕）</li>
-            </ul>
         </section>
 
         <section id="contact">
             <h2>联系方式</h2>
             <p>邮箱：example@test.com</p>
             <p>微信：wechat_example</p>
+            <!-- 新增：跳转到顶部的按钮 -->
+            <a href="#home" class="btn">回到顶部</a>
+        </section>
+
+        <!-- 新增：跳转演示区域（高度较大，方便看滚动效果） -->
+        <section id="jump" class="jump-section">
+            <h2>跳转演示区</h2>
+            <p>这是一个专门用于演示跳转的区域，点击导航栏的「跳转演示区」或首页的按钮可以来到这里。</p>
+            <p>因为设置了 scroll-behavior: smooth，跳转时会有平滑滚动效果，而不是瞬间跳转。</p>
         </section>
     </div>
 
-    <!-- 页脚 -->
     <footer>
-        <p>&copy; 2023 我的静态网页 | 用HTML和CSS制作</p>
+        <p>&copy; 2023 带跳转效果的网页 | 点击链接体验跳转</p>
     </footer>
 </body>
 </html>
